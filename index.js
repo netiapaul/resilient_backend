@@ -12,7 +12,7 @@ dotenv.config({ path: "./config.env" });
 app.use(express.json());
 app.use(morgan("dev"));
 
-const port = process.env.port || 8300;
+const port = 8300;
 const DB = process.env.DATABASE.replace(
   "<db_password>",
   process.env.DATABASE_PASSWORD

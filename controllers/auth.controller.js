@@ -52,7 +52,7 @@ const login = async (req, res) => {
   res.status(201).json({
     status: "success",
     token,
-    data: { user: user },
+    data: user,
   });
   try {
   } catch (error) {
@@ -66,7 +66,9 @@ const login = async (req, res) => {
 
 const userDetails = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).populate("loans");
+    const user = await User.findById(req.params.id)
+      .select("-password")
+      .populate("loans");
 
     if (!user) {
       return res.status(404).json({

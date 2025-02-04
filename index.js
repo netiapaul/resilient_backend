@@ -32,5 +32,5 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/loans", loanRouter);
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on port:${port}`);
 });
